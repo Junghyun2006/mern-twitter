@@ -9,6 +9,8 @@ import jwt_decode from 'jwt-decode';
 
 import { setAuthToken } from './util/session_api_utils';
 import { logout } from './actions/session_actions';
+import {headphoneReq} from "./util/rapid_api_utils";
+import {fetchProducts} from "./actions/product_actions"
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -33,8 +35,12 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore({});
   }
+
   const root = document.getElementById('root');
   window.logout = store.dispatch(logout());
+  window.headphoneReq = headphoneReq;
+  window.dispatch = store.dispatch;
+  window.fetchProducts = fetchProducts;
 
   ReactDOM.render(<Root store={store} />, root);
 });

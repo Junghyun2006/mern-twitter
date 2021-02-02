@@ -6,7 +6,7 @@ const users = require("./routes/api/users");
 const tweets = require("./routes/api/tweets");
 const bodyParser = require('body-parser');
 const passport = require('passport');
-const path = require('path')
+const path = require('path');
 
 //db and username are imported from config/key files which are then used below to connect
 mongoose
